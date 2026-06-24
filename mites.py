@@ -24,14 +24,22 @@ if "submitted" not in st.session_state:
 if not st.session_state.submitted:
 
     st.subheader("🔎 Enter Search Criteria")
+    with st.form("search_form"):
+        search_size = st.text_input("Size")
+        search_shape = st.text_input("Shape")
+        search_colour = st.text_input("Colour")
+        search_aggressive = st.checkbox("Aggressive?")
+        search_development_speed = st.text_input("Development Speed")
+
+        submitted = st.form_submit_button("Search")
 
     # IMPORTANT: match values with dataset exactly
-    search_size = st.selectbox("Size", ["small", "medium", "big"])
-    search_shape = st.selectbox("Shape", ["pear_shaped", "oval_to_teardrop", "broad_oval", "oval_slender", "ovoid"])
-    search_colour = st.selectbox("Colour", ["grey", "light_tan", "beige_tan", "cream_tan", "pale_light_brown"])
-    search_aggressive = st.selectbox("Aggressive?", ["True", "False"])
-    search_development_speed = st.selectbox("Development Speed", ["fast", "moderate", "slow"])
-
+    #search_size = st.selectbox("Size", ["small", "medium", "big"])
+    #search_shape = st.selectbox("Shape", ["pear_shaped", "oval_to_teardrop", "broad_oval", "oval_slender", "ovoid"])
+    #search_colour = st.selectbox("Colour", ["grey", "light_tan", "beige_tan", "cream_tan", "pale_light_brown"])
+    #search_aggressive = st.selectbox("Aggressive?", ["True", "False"])
+    #search_development_speed = st.selectbox("Development Speed", ["fast", "moderate", "slow"])
+    
     if st.button("Find Predator"):
         st.session_state.search_size = search_size
         st.session_state.search_shape = search_shape
